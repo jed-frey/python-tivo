@@ -26,5 +26,4 @@ def function_uuid():
 @pytest.fixture(scope="session")
 def tivo():
     import tivo
-
     yield tivo.TiVo(host="192.168.1.135", port=31339)

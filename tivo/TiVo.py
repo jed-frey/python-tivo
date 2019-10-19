@@ -1,6 +1,10 @@
 from .connection import TiVoConnection
 from .const import IRCodeCommand
 
+keyboard_lookup= {
+    " ": "SPACE",
+}
+
 class TiVo(TiVoConnection):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -9,7 +13,12 @@ class TiVo(TiVoConnection):
         """Send a string to the Tivo"""
         cmd_list = list()
         for char in str_:
-            cmd_list+=[f"KEYBOARD {char}"]
+            if char in keyboard_lookup.keys():
+                char_ = keyboard_lookup[char]
+                cmd_list+=[f"KEYBOARD {char_}"]
+                continue
+            else:
+                cmd_list+=[f"KEYBOARD {char}"]
         return self.sendCommands(cmd_list)
         
     def combo(self, コナミコマンド):

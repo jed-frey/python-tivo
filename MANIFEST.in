@@ -1,0 +1,2 @@
+include versioneer.py
+include tivo/_version.py

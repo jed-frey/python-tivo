@@ -1,13 +1,15 @@
-from setuptools import setup, find_packages
+import versioneer
+from setuptools import find_packages, setup
 
 setup(
-  name = 'python_tivo',
-  version = '0.0.1',
-  description = 'Python module for controlling a TiVo DVR',
-  license = 'MIT',
-  keywords = 'tivo',
-  author = 'mattjgalloway',
-  author_email = 'matt@galloway.me.uk',
-  url = 'https://github.com/mattjgalloway/python-tivo',
-  packages = find_packages()
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
+    name='tivo',
+    description='Python module for controlling a TiVo DVR',
+    license='MIT',
+    keywords='tivo',
+    author='mattjgalloway, jed-frey',
+    author_email='matt@galloway.me.uk',
+    url='https://github.com/jed-frey/python-tivo',
+    packages=find_packages()
 )

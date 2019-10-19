@@ -10,4 +10,10 @@ from .connection import TiVoSocketError
 from .const import *
 from .response import *
 
-__all__ = ['TiVoConnection', 'TiVoError', 'TiVoSocketError']
+from .TiVo import TiVo
+
+__all__ = ['TiVo']
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions

@@ -15,7 +15,7 @@ class TiVoSocketError(Exception):
     pass
 
 
-class ThreadedSocket(object):
+class ThreadedSocket:
     def __init__(self, host, port):
         self._host = host
         self._port = port
@@ -60,7 +60,7 @@ class ThreadedSocket(object):
                 return False
 
 
-class TiVoConnection(object):
+class TiVoConnection:
     def __init__(self, host, port):
         self._host = host
         self._port = port
@@ -109,7 +109,7 @@ class TiVoConnection(object):
         begin = time.time()
         while True and time.time() - begin < timeout:
             ready = select.select([sock], [], [], timeout)
-            print("Ready {}".format(ready))
+            print(f"Ready {ready}")
             if ready[0]:
                 data = sock.recv(4096)
                 allData += data

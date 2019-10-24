@@ -148,4 +148,4 @@ class TeleportType:
 
 class SpecialCommand:
     def WAIT(time):
-        return "WAIT {}".format(time)
+        return f"WAIT {time}"
